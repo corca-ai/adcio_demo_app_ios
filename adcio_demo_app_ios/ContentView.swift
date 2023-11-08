@@ -28,8 +28,7 @@ struct ContentView: View {
                     Label(
                         title: {
                             Text("홈")
-                                .font(.headline)
-                                .foregroundStyle(.white)
+                                .font(.title)
                         },
                         icon: {
                             Image(systemName: "house.fill")
@@ -43,14 +42,13 @@ struct ContentView: View {
                     Label(
                         title: {
                             Text("추천")
-                                .font(.headline) // 글자 크기 조절
+                                .font(.title)
                         },
                         icon: {
                             Image(systemName: "star.fill")
                                 .font(.system(size: 22))
                         }
                     )
-                    .foregroundStyle(.white)
                 }
             
             ChartView()
@@ -58,8 +56,7 @@ struct ContentView: View {
                     Label(
                         title: {
                             Text("목록")
-                                .font(.headline)
-                                .foregroundStyle(.white)
+                                .font(.title)
                         },
                         icon: {
                             Image(systemName: "list.bullet")
