@@ -8,7 +8,7 @@
 import Foundation
 import AdcioPlacement
 
-func load() -> Data? {
+func loadJsonData() -> Data? {
     let fileNm: String = "Product"
     let extensionType = "json"
     
@@ -24,7 +24,7 @@ func load() -> Data? {
 
 func fetchJson() -> [ProductEntity] {
     var productValue: [ProductEntity] = []
-    if let jsonData = load() {
+    if let jsonData = loadJsonData() {
         productValue = try! JSONDecoder().decode([ProductEntity].self, from: jsonData)
     }
     try! AdcioPlacement.shared.adcioCreateSuggestion(
