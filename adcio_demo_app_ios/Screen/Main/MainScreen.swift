@@ -55,7 +55,7 @@ struct MainView: View {
             }
         }
         .onAppear {
-            products = fetchProductData()
+            products = fetchJsonData() + fetchSuggestData()
         }
     }
 }
