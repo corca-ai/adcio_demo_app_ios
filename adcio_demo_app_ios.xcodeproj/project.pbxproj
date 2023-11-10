@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */; };
 		B3C1DE512AFB33C000A1DF47 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE502AFB33C000A1DF47 /* MainScreen.swift */; };
 		B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */; };
 		B3C1DE582AFB345400A1DF47 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE572AFB345400A1DF47 /* ChartView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeToast.swift; sourceTree = "<group>"; };
 		B3C1DE502AFB33C000A1DF47 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		B3C1DE572AFB345400A1DF47 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C1DE6C2AFC838900A1DF47 /* ProgressView.swift */,
+				B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				B3C1DE672AFC776600A1DF47 /* ProductEntity.swift in Sources */,
 				B3C1DE512AFB33C000A1DF47 /* MainScreen.swift in Sources */,
 				B3E17EF12AFB2E8300C1BB91 /* ContentView.swift in Sources */,
+				B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */,
 				B3C1DE6A2AFC818F00A1DF47 /* GridItemView.swift in Sources */,
 				B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */,
 				B3C1DE6D2AFC838900A1DF47 /* ProgressView.swift in Sources */,
