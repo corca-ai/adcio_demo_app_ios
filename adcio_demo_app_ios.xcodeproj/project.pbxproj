@@ -19,7 +19,7 @@
 		B3C1DE742AFCAE6D00A1DF47 /* AdcioCore in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE732AFCAE6D00A1DF47 /* AdcioCore */; };
 		B3C1DE762AFCAE6D00A1DF47 /* AdcioPlacement in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE752AFCAE6D00A1DF47 /* AdcioPlacement */; };
 		B3C1DE782AFCAE6D00A1DF47 /* AdcioSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE772AFCAE6D00A1DF47 /* AdcioSDK */; };
-		B3C1DE7A2AFCB8FE00A1DF47 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE792AFCB8FE00A1DF47 /* FetchData.swift */; };
+		B3C1DE7A2AFCB8FE00A1DF47 /* FetchProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE792AFCB8FE00A1DF47 /* FetchProductData.swift */; };
 		B3E17EEF2AFB2E8300C1BB91 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E17EEE2AFB2E8300C1BB91 /* DemoApp.swift */; };
 		B3E17EF12AFB2E8300C1BB91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E17EF02AFB2E8300C1BB91 /* ContentView.swift */; };
 		B3E17EF32AFB2E8300C1BB91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E17EF22AFB2E8300C1BB91 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		B3C1DE662AFC776600A1DF47 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
 		B3C1DE692AFC818F00A1DF47 /* GridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemView.swift; sourceTree = "<group>"; };
 		B3C1DE6C2AFC838900A1DF47 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		B3C1DE792AFCB8FE00A1DF47 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		B3C1DE792AFCB8FE00A1DF47 /* FetchProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductData.swift; sourceTree = "<group>"; };
 		B3E17EEB2AFB2E8300C1BB91 /* adcio_demo_app_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcio_demo_app_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E17EEE2AFB2E8300C1BB91 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		B3E17EF02AFB2E8300C1BB91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3BF0E182AFDBF09003F3685 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B3C1DE792AFCB8FE00A1DF47 /* FetchProductData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		B3C1DE4F2AFB33A500A1DF47 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				B3C1DE6C2AFC838900A1DF47 /* ProgressView.swift */,
-				B3C1DE792AFCB8FE00A1DF47 /* FetchData.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -145,6 +152,7 @@
 		B3E17EED2AFB2E8300C1BB91 /* adcio_demo_app_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B3BF0E182AFDBF09003F3685 /* Data */,
 				B3C1DE6B2AFC837B00A1DF47 /* Util */,
 				B3C1DE652AFC775400A1DF47 /* Entity */,
 				B3C1DE602AFC73EC00A1DF47 /* DummyJson */,
@@ -253,7 +261,7 @@
 				B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */,
 				B3C1DE6D2AFC838900A1DF47 /* ProgressView.swift in Sources */,
 				B3C1DE582AFB345400A1DF47 /* ChartView.swift in Sources */,
-				B3C1DE7A2AFCB8FE00A1DF47 /* FetchData.swift in Sources */,
+				B3C1DE7A2AFCB8FE00A1DF47 /* FetchProductData.swift in Sources */,
 				B3E17EEF2AFB2E8300C1BB91 /* DemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
