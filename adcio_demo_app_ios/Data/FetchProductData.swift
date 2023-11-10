@@ -22,12 +22,16 @@ func loadJsonData() -> Data? {
     }
 }
 
-func fetchJson() -> [ProductEntity] {
+func fetchProductData() -> [ProductEntity] {
     var productValue: [ProductEntity] = []
     if let jsonData = loadJsonData() {
-        productValue = try! JSONDecoder().decode([ProductEntity].self, from: jsonData)
+        do {
+            productValue = try JSONDecoder().decode([ProductEntity].self, from: jsonData)
+        } catch {
+            print("Core is not initialize")
+        }
     }
-    try! AdcioPlacement.shared.adcioCreateSuggestion(
+    try? AdcioPlacement.shared.adcioCreateSuggestion(
         placementId: "67592c00-a230-4c31-902e-82ae4fe71866"
     ) { AdcioSuggestionRawData in
         let suggestionData = AdcioSuggestionRawData.suggestions
