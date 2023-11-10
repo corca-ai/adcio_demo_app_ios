@@ -9,30 +9,32 @@ import Foundation
 import AdcioPlacement
 import SwiftUI
 
-func loadJsonData() -> Data? {
+func fetchJsonData() -> [ProductEntity] {
+    var productValue: [ProductEntity] = []
+    
     let fileNm: String = "Product"
     let extensionType = "json"
     
-    guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+    guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return [] }
     
     do {
-        let data = try Data(contentsOf: fileLocation)
-        return data
+        let jsonData = try Data(contentsOf: fileLocation)
+        productValue = try JSONDecoder().decode([ProductEntity].self, from: jsonData)
     } catch {
-        return nil
+        dump("Json Parsing Error")
     }
+    
+    return productValue
 }
 
-// ADCIO_Placement usage section
-func loadPlacementValue() -> [ProductEntity] {
-    
+func fetchSuggestData() -> [ProductEntity] {
     var productValue: [ProductEntity] = []
     
     try? AdcioPlacement.shared.adcioCreateSuggestion(
         placementId: "67592c00-a230-4c31-902e-82ae4fe71866"
     ) { AdcioSuggestionRawData in
         let suggestionData = AdcioSuggestionRawData.suggestions
-
+        
         for index in 0..<suggestionData.count {
             let suggestedProduct = ProductEntity(
                 id: suggestionData[index].product.id,
@@ -55,23 +57,6 @@ func loadPlacementValue() -> [ProductEntity] {
         }
         dump("Placement call is failed")
     }
-    
-    return productValue
-}
-
-func fetchProductData() -> [ProductEntity] {
-    var productValue: [ProductEntity] = []
-    
-    if let jsonData = loadJsonData() {
-        do {
-            productValue = try JSONDecoder().decode([ProductEntity].self, from: jsonData)
-        } catch {
-            dump("Json Parsing Error")
-        }
-    }
-    
-    let placementList = loadPlacementValue()
-    productValue += placementList
     
     return productValue
 }
