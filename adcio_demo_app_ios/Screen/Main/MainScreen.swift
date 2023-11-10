@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import AdcioPlacement
 
 struct MainView: View {
-    var rows: [GridItem] = Array(repeating: .init(.fixed(50)), count: 2)
+    
+    @State private var products: [ProductEntity] = []
+    
     var body: some View {
         VStack {
             HStack {
@@ -29,26 +32,30 @@ struct MainView: View {
                     Image("Banner")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    Text("현명님을 위한 추천 상품")
+                    Text("민채님을 위한 추천 상품")
                         .font(.subheadline)
                         .padding([.top], 3)
                         .padding([.leading, .bottom], 15)
                     ScrollView(.horizontal) {
-                        LazyHGrid(rows: rows, alignment: .center) {
-                            ForEach((0...10), id: \.self) {_ in
-                                VStack {
-                                    Text("HIHELLO")
-                                }
+                        LazyHGrid(rows: [GridItem(.flexible(minimum: 170), spacing: 8), GridItem(.flexible(minimum: 170), spacing: 8)], spacing: 2) {
+                            ForEach(products, id: \.id) { product in
+                                GridItemView(
+                                    id: product.id,
+                                    name: product.name,
+                                    seller: product.seller,
+                                    price: product.price,
+                                    image: product.image,
+                                    isAd: product.isAd
+                                )
                             }
+                            .frame(width: 150) // Adjust the width as needed
                         }
-                    }.padding([.leading], 15)
+                    }
                 }
             }
         }
+        .onAppear {
+            products = fetchJsonData() + fetchSuggestData()
+        }
     }
 }
-
-#Preview {
-    MainView()
-}
-
