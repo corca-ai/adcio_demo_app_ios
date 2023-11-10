@@ -23,15 +23,11 @@ func loadJsonData() -> Data? {
     }
 }
 
-func fetchProductData() -> [ProductEntity] {
+// ADCIO_Placement usage section
+func loadPlacementValue() -> [ProductEntity] {
+    
     var productValue: [ProductEntity] = []
-    if let jsonData = loadJsonData() {
-        do {
-            productValue = try JSONDecoder().decode([ProductEntity].self, from: jsonData)
-        } catch {
-            dump("Json Parsing Error")
-        }
-    }
+    
     try? AdcioPlacement.shared.adcioCreateSuggestion(
         placementId: "67592c00-a230-4c31-902e-82ae4fe71866"
     ) { AdcioSuggestionRawData in
@@ -59,6 +55,23 @@ func fetchProductData() -> [ProductEntity] {
         }
         dump("Placement call is failed")
     }
+    
+    return productValue
+}
+
+func fetchProductData() -> [ProductEntity] {
+    var productValue: [ProductEntity] = []
+    
+    if let jsonData = loadJsonData() {
+        do {
+            productValue = try JSONDecoder().decode([ProductEntity].self, from: jsonData)
+        } catch {
+            dump("Json Parsing Error")
+        }
+    }
+    
+    let placementList = loadPlacementValue()
+    productValue += placementList
     
     return productValue
 }
