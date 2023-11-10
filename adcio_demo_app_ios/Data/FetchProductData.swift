@@ -48,7 +48,6 @@ func fetchProductData() -> [ProductEntity] {
             )
             productValue.append(suggestedProduct)
         }
-        productValue.shuffle()
     } onFailure: { Error in
         @State var showToast = true
         ToastView(isVisible: $showToast, hideAfter: 2) {
