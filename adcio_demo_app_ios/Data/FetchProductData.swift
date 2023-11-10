@@ -29,7 +29,7 @@ func fetchProductData() -> [ProductEntity] {
         do {
             productValue = try JSONDecoder().decode([ProductEntity].self, from: jsonData)
         } catch {
-            print("Core is not initialize")
+            dump("Json Parsing Error")
         }
     }
     try? AdcioPlacement.shared.adcioCreateSuggestion(
