@@ -7,6 +7,7 @@
 
 import Foundation
 import AdcioPlacement
+import SwiftUI
 
 func loadJsonData() -> Data? {
     let fileNm: String = "Product"
@@ -49,7 +50,15 @@ func fetchProductData() -> [ProductEntity] {
         }
         productValue.shuffle()
     } onFailure: { Error in
-        print("ERRORERROR")
+        @State var showToast = true
+        ToastView(isVisible: $showToast, hideAfter: 2) {
+            Text("Placement call is failed")
+                .padding()
+                .background(Color.black)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+        }
+        dump("Placement call is failed")
     }
     
     return productValue
