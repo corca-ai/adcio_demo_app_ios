@@ -3,4 +3,22 @@
    uuid = "9D731647-F765-4590-89AE-D2A54C76FFB7"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51767574-4F2A-4439-B4F5-9BB933213BE3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/adcio_demo_app_ios-ecjiegxyjdinfdgdwjdfmhglvuit/SourcePackages/checkouts/adcio-ios-sdk/Sources/AdcioAgent/AdcioCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "userContentController(_:didReceive:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
