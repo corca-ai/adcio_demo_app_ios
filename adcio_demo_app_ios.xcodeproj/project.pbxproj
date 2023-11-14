@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */; };
 		B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */; };
 		B3C1DE512AFB33C000A1DF47 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE502AFB33C000A1DF47 /* MainScreen.swift */; };
 		B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeToast.swift; sourceTree = "<group>"; };
 		B3C1DE502AFB33C000A1DF47 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B355A6FD2B01B20D0065E5D9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		B3BF0E182AFDBF09003F3685 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		B3C1DE4F2AFB33A500A1DF47 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B355A6FD2B01B20D0065E5D9 /* Detail */,
 				B3C1DE682AFC817C00A1DF47 /* Item */,
 				B3C1DE562AFB344400A1DF47 /* Chart */,
 				B3C1DE532AFB33D700A1DF47 /* Recommend */,
@@ -259,6 +270,7 @@
 			files = (
 				B3C1DE672AFC776600A1DF47 /* ProductEntity.swift in Sources */,
 				B3C1DE512AFB33C000A1DF47 /* MainScreen.swift in Sources */,
+				B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */,
 				B3E17EF12AFB2E8300C1BB91 /* ContentView.swift in Sources */,
 				B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */,
 				B3C1DE6A2AFC818F00A1DF47 /* GridItemView.swift in Sources */,
