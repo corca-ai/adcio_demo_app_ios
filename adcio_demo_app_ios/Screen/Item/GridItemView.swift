@@ -20,19 +20,14 @@ struct GridItemView: View {
     @State private var isImageLoading = true
     
     init(
-        id: String,
-        name: String,
-        seller: String,
-        price: Int,
-        image: String,
-        isAd: Bool
+        productValue: ProductEntity
     ) {
-        self.id = id
-        self.name = name
-        self.seller = seller
-        self.price = price
-        self.image = image
-        self.isAd = isAd
+        self.id = productValue.id
+        self.name = productValue.name
+        self.seller = productValue.seller
+        self.price = productValue.price
+        self.image = productValue.image
+        self.isAd = productValue.isAd
     }
     
     var body: some View {
@@ -68,20 +63,24 @@ struct GridItemView: View {
 
             Text(seller)
                 .font(.caption)
+                .foregroundColor(.black)
                 .lineLimit(1)
                 .multilineTextAlignment(.center)
                 .frame(width: 120)
                 .fixedSize(horizontal: false, vertical: true)
             Text(name)
                 .font(.caption2)
+                .foregroundColor(.black)
                 .lineLimit(1)
                 .multilineTextAlignment(.trailing)
                 .frame(width: 150)
                 .fixedSize(horizontal: false, vertical: true)
             HStack {
                 Text("20%")
+                    .foregroundColor(.black)
                     .font(.caption)
                 Text("\(price)원")
+                    .foregroundColor(.black)
                     .font(.caption)
             }
             .padding([.bottom], 23)
