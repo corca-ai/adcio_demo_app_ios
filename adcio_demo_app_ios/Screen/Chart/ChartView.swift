@@ -6,8 +6,19 @@
 //
 
 import SwiftUI
+import AdcioAnalytics
 
 struct ChartView: View {
+    
+    init() {
+        try? AdcioAnalytics.shared.onPageView(
+            path: "Chart",
+            onFailure: { Error in
+                dump("Analytics pageview call is failed")
+            }
+        )
+    }
+    
     var body: some View {
         VStack {
             Text("Chart")
