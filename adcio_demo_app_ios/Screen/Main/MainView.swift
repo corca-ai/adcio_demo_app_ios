@@ -11,7 +11,7 @@ import AdcioAnalytics
 
 struct MainView: View {
     
-    @State private var products: [ProductEntity] = []
+    @State private var suggestions: [AdcioSuggestion] = []
     
     init() {
         try? AdcioAnalytics.shared.onPageView(
@@ -51,16 +51,20 @@ struct MainView: View {
                         
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: [GridItem(.flexible(minimum: 170), spacing: 8), GridItem(.flexible(minimum: 170), spacing: 8)], spacing: 2) {
-                                ForEach(products, id: \.id) { product in
+                                ForEach(suggestions, id: \.product.id) { suggestion in
                                     let productValue = ProductEntity(
-                                        id: product.id,
-                                        name: product.name,
-                                        image: product.image,
-                                        price: product.price,
-                                        seller: product.seller,
-                                        isAd: product.isAd
+                                        id: suggestion.product.id,
+                                        name: suggestion.product.name,
+                                        image: suggestion.product.image,
+                                        price: suggestion.product.price,
+                                        seller: suggestion.product.description,
+                                        isAd: suggestion.product.includeInRecommendation
                                     )
-                                    NavigationLink(destination: ProductDetailView(productValue: productValue)) {
+                                    let logOptionValue = AdcioLogOption(
+                                        requestId: suggestion.logOptions.requestId,
+                                        adsetId: suggestion.logOptions.adsetId
+                                    )
+                                    NavigationLink(destination: ProductDetailView(productValue: productValue, logOptionValue: logOptionValue)) {
                                         GridItemView(productValue: productValue)
                                             .frame(width: 150)
                                     }
@@ -71,7 +75,9 @@ struct MainView: View {
                 }
             }
             .onAppear {
-                products = fetchJsonData() + fetchSuggestData()
+                fetchSuggestData { suggestionValue in
+                    suggestions = suggestionValue
+                }
             }
             .navigationBarTitle("", displayMode: .inline)
         }
