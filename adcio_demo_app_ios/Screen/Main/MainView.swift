@@ -13,15 +13,6 @@ struct MainView: View {
     
     @State private var suggestions: [AdcioSuggestion] = []
     
-    init() {
-        try? AdcioAnalytics.shared.onPageView(
-            path: "Main",
-            onFailure: { Error in
-                dump("Analytics pageview call is failed")
-            }
-        )
-    }
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -75,6 +66,14 @@ struct MainView: View {
                 }
             }
             .onAppear {
+                
+                try? AdcioAnalytics.shared.onPageView(
+                    path: "ProductDetail",
+                    onFailure: { Error in
+                        dump("Analytics pageview call is failed")
+                    }
+                )
+                
                 fetchSuggestData { suggestionValue in
                     suggestions = suggestionValue
                 }
