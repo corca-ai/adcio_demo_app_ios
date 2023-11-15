@@ -16,7 +16,7 @@ struct RecommendView: View {
         .padding()
         .onAppear{
             try? AdcioAnalytics.shared.onPageView(
-                path: "ProductDetail",
+                path: "Recommend",
                 onFailure: { Error in
                     dump("Analytics pageview call is failed")
                 }

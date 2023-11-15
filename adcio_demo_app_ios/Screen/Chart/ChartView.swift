@@ -17,7 +17,7 @@ struct ChartView: View {
         .padding()
         .onAppear{
             try? AdcioAnalytics.shared.onPageView(
-                path: "ProductDetail",
+                path: "Chart",
                 onFailure: { Error in
                     dump("Analytics pageview call is failed")
                 }

@@ -68,7 +68,7 @@ struct MainView: View {
             .onAppear {
                 
                 try? AdcioAnalytics.shared.onPageView(
-                    path: "ProductDetail",
+                    path: "Main",
                     onFailure: { Error in
                         dump("Analytics pageview call is failed")
                     }
