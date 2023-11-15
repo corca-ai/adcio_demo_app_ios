@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AdcioAnalytics
 
 struct ProductDetailView: View {
     
@@ -18,8 +19,11 @@ struct ProductDetailView: View {
     
     @State var isImageLoading: Bool = true
     
+    let logOptions: AdcioLogOption
+    
     init(
-        productValue: ProductEntity
+        productValue: ProductEntity,
+        logOptionValue: AdcioLogOption
     ) {
         self.id = productValue.id
         self.name = productValue.name
@@ -27,7 +31,9 @@ struct ProductDetailView: View {
         self.price = productValue.price
         self.image = productValue.image
         self.isAd = productValue.isAd
+        self.logOptions = logOptionValue
     }
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -108,10 +114,24 @@ struct ProductDetailView: View {
                             Image(systemName: "cart.fill")
                                 .foregroundColor(.black)
                                 .onTapGesture {
-                                    // Analytics Add To Cart
+                                    try? AdcioAnalytics.shared.onAddToCart(
+                                        cartId: "0",
+                                        productIdOnStore: id,
+                                        onFailure: { Error in
+                                            @State var showToast = true
+                                            ToastView(isVisible: $showToast, hideAfter: 2) {
+                                                Text("Analytics add to cart call is failed")
+                                                    .padding()
+                                                    .background(Color.black)
+                                                    .foregroundColor(Color.white)
+                                                    .cornerRadius(10)
+                                            }
+                                            dump("Analytics add to cart call is failed")
+                                        }
+                                    )
                                 }
                         }
-                    )
+                )
             }
             HStack {
                 Spacer()
@@ -119,17 +139,46 @@ struct ProductDetailView: View {
                     .foregroundColor(.black)
                 Spacer()
                 Button(action: {
-                    // Analaytics.onPurchase
+                    try? AdcioAnalytics.shared.onPurchase(
+                        orderId: "123123",
+                        productIdOnStore: id,
+                        amount: self.price,
+                        onFailure: { Error in
+                            @State var showToast = true
+                            ToastView(isVisible: $showToast, hideAfter: 2) {
+                                Text("Analytics purchase call is failed")
+                                    .padding()
+                                    .background(Color.black)
+                                    .foregroundColor(Color.white)
+                                    .cornerRadius(10)
+                            }
+                            dump("Analytics purchase call is failed")
+                        }
+                    )
                 }) {
                     Text("구매하기")
                         .frame(width: 250, height: 42)
-                        .background(Color.black) // Change the color as needed
+                        .background(Color.black)
                         .foregroundColor(.white)
                         .cornerRadius(4)
                 }
                 .padding(.trailing, 10)
             }
             Spacer()
+        }
+        .onAppear{
+            try? AdcioAnalytics.shared.onClick(
+                option: logOptions,
+                onFailure: { Error in
+                    dump("Analytics click call is failed")
+                })
+            
+            try? AdcioAnalytics.shared.onPageView(
+                path: "ProductDetail",
+                onFailure: { Error in
+                    dump("Analytics pageview call is failed")
+                }
+            )
         }
     }
 }
