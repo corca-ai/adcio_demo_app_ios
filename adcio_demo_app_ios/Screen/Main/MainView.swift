@@ -7,10 +7,20 @@
 
 import SwiftUI
 import AdcioPlacement
+import AdcioAnalytics
 
 struct MainView: View {
     
     @State private var products: [ProductEntity] = []
+    
+    init() {
+        try? AdcioAnalytics.shared.onPageView(
+            path: "Main",
+            onFailure: { Error in
+                dump("Analytics pageview call is failed")
+            }
+        )
+    }
     
     var body: some View {
         NavigationView {
