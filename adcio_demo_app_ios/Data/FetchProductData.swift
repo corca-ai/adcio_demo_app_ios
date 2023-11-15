@@ -7,6 +7,7 @@
 
 import Foundation
 import AdcioPlacement
+import AdcioAnalytics
 import SwiftUI
 
 func fetchJsonData() -> [ProductEntity] {
@@ -27,36 +28,25 @@ func fetchJsonData() -> [ProductEntity] {
     return productValue
 }
 
-func fetchSuggestData() -> [ProductEntity] {
-    var productValue: [ProductEntity] = []
+func fetchSuggestData(completion: @escaping ([AdcioSuggestion]) -> Void) {
+    
+    var suggestValue: [AdcioSuggestion] = []
     
     try? AdcioPlacement.shared.adcioCreateSuggestion(
-        placementId: "67592c00-a230-4c31-902e-82ae4fe71866"
-    ) { AdcioSuggestionRawData in
-        let suggestionData = AdcioSuggestionRawData.suggestions
-        
-        for index in 0..<suggestionData.count {
-            let suggestedProduct = ProductEntity(
-                id: suggestionData[index].product.id,
-                name: suggestionData[index].product.name,
-                image: suggestionData[index].product.image,
-                price: suggestionData[index].product.price,
-                seller: suggestionData[index].product.description,
-                isAd: true
-            )
-            productValue.append(suggestedProduct)
+        placementId: "67592c00-a230-4c31-902e-82ae4fe71866",
+        onSuccess: { adcioSuggestionRawData in
+            let suggestionData = adcioSuggestionRawData.suggestions
+            for index in 0..<suggestionData.count {
+                suggestValue.append(suggestionData[index])
+            }
+            completion(suggestValue)
+        },
+        onFailure: { error in
+            dump("Placement call is failed")
+            completion([])
         }
-    } onFailure: { Error in
-        @State var showToast = true
-        ToastView(isVisible: $showToast, hideAfter: 2) {
-            Text("Placement call is failed")
-                .padding()
-                .background(Color.black)
-                .foregroundColor(Color.white)
-                .cornerRadius(10)
-        }
-        dump("Placement call is failed")
-    }
-    
-    return productValue
+    )
 }
+
+
+
