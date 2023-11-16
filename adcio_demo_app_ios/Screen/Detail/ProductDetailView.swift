@@ -19,11 +19,11 @@ struct ProductDetailView: View {
     
     @State var isImageLoading: Bool = true
     
-    let logOptions: AdcioLogOption
+    let logOption: LogOptionEntity
     
     init(
         productValue: ProductEntity,
-        logOptionValue: AdcioLogOption
+        logOptionValue: LogOptionEntity
     ) {
         self.id = productValue.id
         self.name = productValue.name
@@ -31,7 +31,7 @@ struct ProductDetailView: View {
         self.price = productValue.price
         self.image = productValue.image
         self.isAd = productValue.isAd
-        self.logOptions = logOptionValue
+        self.logOption = logOptionValue
     }
     
     var body: some View {
@@ -168,7 +168,10 @@ struct ProductDetailView: View {
         }
         .onAppear{
             try? AdcioAnalytics.shared.onClick(
-                option: logOptions,
+                option: AdcioLogOption(
+                    requestId: logOption.requestId,
+                    adsetId: logOption.adsetId
+                ),
                 onFailure: { Error in
                     dump("Analytics click call is failed")
                 })
