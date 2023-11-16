@@ -72,12 +72,8 @@ struct MainView: View {
                 
                 fetchSuggestData { productList in
                     self.products = productList
-                    print("123\(productList)")
-                    print("345\(products)")
                 } logOption: { logOptionList in
                     self.logOptions = logOptionList
-                    print(logOptionList)
-                    print(logOptions)
                 }
                 
                 
