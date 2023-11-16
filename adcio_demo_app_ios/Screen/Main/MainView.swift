@@ -11,7 +11,8 @@ import AdcioAnalytics
 
 struct MainView: View {
     
-    @State private var suggestions: [AdcioSuggestion] = []
+    @State private var products: [ProductEntity] = []
+    @State private var logOptions: [LogOptionEntity] = []
     
     var body: some View {
         NavigationView {
@@ -42,25 +43,20 @@ struct MainView: View {
                         
                         ScrollView(.horizontal) {
                             LazyHGrid(rows: [GridItem(.flexible(minimum: 170), spacing: 8), GridItem(.flexible(minimum: 170), spacing: 8)], spacing: 2) {
-                                ForEach(suggestions, id: \.product.id) { suggestion in
-                                    let productValue = ProductEntity(
-                                        id: suggestion.product.id,
-                                        name: suggestion.product.name,
-                                        image: suggestion.product.image,
-                                        price: suggestion.product.price,
-                                        seller: suggestion.product.description,
-                                        isAd: suggestion.product.includeInRecommendation
-                                    )
-                                    let logOptionValue = AdcioLogOption(
-                                        requestId: suggestion.logOptions.requestId,
-                                        adsetId: suggestion.logOptions.adsetId
-                                    )
-                                    NavigationLink(destination: ProductDetailView(productValue: productValue, logOptionValue: logOptionValue)) {
-                                        GridItemView(productValue: productValue)
+                                ForEach(products, id: \.id) { product in
+                                    NavigationLink(destination: ProductDetailView(productValue: product, logOptionValue: correspondingLogOption(product) ?? LogOptionEntity(requestId: "", adsetId: ""))) {
+                                        GridItemView(productValue: product)
                                             .frame(width: 150)
                                     }
                                 }
                             }
+                        }
+                    }
+                    .onAppear {
+                        fetchSuggestData { productList in
+                            products = productList
+                        } logOption: { logOptionList in
+                            logOptions = logOptionList
                         }
                     }
                 }
@@ -74,11 +70,23 @@ struct MainView: View {
                     }
                 )
                 
-                fetchSuggestData { suggestionValue in
-                    suggestions = suggestionValue
+                fetchSuggestData { productList in
+                    self.products = productList
+                    print("123\(productList)")
+                    print("345\(products)")
+                } logOption: { logOptionList in
+                    self.logOptions = logOptionList
+                    print(logOptionList)
+                    print(logOptions)
                 }
+                
+                
             }
             .navigationBarTitle("", displayMode: .inline)
         }
+    }
+    
+    private func correspondingLogOption(_ product: ProductEntity) -> LogOptionEntity? {
+        return logOptions.first { $0.requestId == product.id }
     }
 }
