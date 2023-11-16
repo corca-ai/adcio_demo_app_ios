@@ -65,7 +65,6 @@ func fetchSuggestData(
             logOption(logOptionValue)
         }
     } onFailure: { Error in
-        // Handle failure
         @State var showToast = true
         ToastView(isVisible: $showToast, hideAfter: 2) {
             Text("Placement call is failed")
@@ -76,6 +75,6 @@ func fetchSuggestData(
         }
         dump("Placement call is failed")
         suggestion([])
-        logOption?([]) // Use optional chaining to call logOption if it's not nil
+        logOption?([]) 
     }
 }
