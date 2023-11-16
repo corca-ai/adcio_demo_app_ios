@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B34C29132B04C25D00FE212B /* LogOptionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C29122B04C25D00FE212B /* LogOptionEntity.swift */; };
 		B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */; };
 		B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */; };
 		B3C1DE512AFB33C000A1DF47 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE502AFB33C000A1DF47 /* MainView.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B34C29122B04C25D00FE212B /* LogOptionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOptionEntity.swift; sourceTree = "<group>"; };
 		B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeToast.swift; sourceTree = "<group>"; };
 		B3C1DE502AFB33C000A1DF47 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C1DE662AFC776600A1DF47 /* ProductEntity.swift */,
+				B34C29122B04C25D00FE212B /* LogOptionEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				B3C1DE6A2AFC818F00A1DF47 /* GridItemView.swift in Sources */,
 				B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */,
 				B3C1DE6D2AFC838900A1DF47 /* ProgressView.swift in Sources */,
+				B34C29132B04C25D00FE212B /* LogOptionEntity.swift in Sources */,
 				B3C1DE582AFB345400A1DF47 /* ChartView.swift in Sources */,
 				B3C1DE7A2AFCB8FE00A1DF47 /* FetchProductData.swift in Sources */,
 				B3E17EEF2AFB2E8300C1BB91 /* DemoApp.swift in Sources */,
