@@ -9,6 +9,7 @@ import Foundation
 import AdcioPlacement
 import SwiftUI
 
+// TODO: Json 값 파라미터 escape로 받아오기
 func fetchJsonData() -> [ProductEntity] {
     var productValue: [ProductEntity] = []
     
