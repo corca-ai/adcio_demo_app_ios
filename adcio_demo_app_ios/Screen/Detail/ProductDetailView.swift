@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductDetailView: View {
     
     let id: String
-    let name: String
+    var name: String
     let seller: String
     let price: Int
     let image: String
@@ -18,9 +18,26 @@ struct ProductDetailView: View {
     
     @State var isImageLoading: Bool = true
     
-    init(
-        productValue: ProductEntity
-    ) {
+    init(productValue: ProductEntity) {
+        let jsonData = fetchJsonData()
+
+        if !productValue.id.isEmpty {
+            guard !productValue.name.isEmpty else {
+                guard let clickedProduct = jsonData.first(where: { $0.id == productValue.id }) else {
+                    fatalError("No value found for that productId: \(productValue.id)")
+                }
+
+                self.id = clickedProduct.id
+                self.name = clickedProduct.name
+                self.seller = clickedProduct.seller
+                self.price = clickedProduct.price
+                self.image = clickedProduct.image
+                self.isAd = clickedProduct.isAd
+
+                return
+            }
+        }
+
         self.id = productValue.id
         self.name = productValue.name
         self.seller = productValue.seller
@@ -28,6 +45,7 @@ struct ProductDetailView: View {
         self.image = productValue.image
         self.isAd = productValue.isAd
     }
+    
     var body: some View {
         VStack {
             ScrollView {
