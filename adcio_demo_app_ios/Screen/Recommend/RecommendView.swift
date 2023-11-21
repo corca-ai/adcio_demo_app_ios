@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AdcioAnalytics
 
 struct RecommendView: View {
     var body: some View {
@@ -13,6 +14,14 @@ struct RecommendView: View {
             Text("Recommend")
         }
         .padding()
+        .onAppear{
+            try? AdcioAnalytics.shared.onPageView(
+                path: "Recommend",
+                onFailure: { Error in
+                    dump("Analytics pageview call is failed")
+                }
+            )
+        }
     }
 }
 
