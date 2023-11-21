@@ -45,16 +45,8 @@ struct MainView: View {
                             ScrollView(.horizontal) {
                                 LazyHGrid(rows: [GridItem(.flexible(minimum: 170), spacing: 8), GridItem(.flexible(minimum: 170), spacing: 8)], spacing: 2) {
                                     ForEach(products, id: \.id) { product in
-                                        let productValue = ProductEntity(
-                                            id: product.id,
-                                            name: product.name,
-                                            image: product.image,
-                                            price: product.price,
-                                            seller: product.seller,
-                                            isAd: product.isAd
-                                        )
-                                        NavigationLink(destination: ProductDetailView(productValue: productValue)) {
-                                            GridItemView(productValue: productValue)
+                                        NavigationLink(destination: ProductDetailView(productValue: product, logOptionValue: correspondingLogOption(product) ?? LogOptionEntity(requestId: "", adsetId: ""))) {
+                                                GridItemView(productValue: product)
                                                 .frame(width: 150)
                                         }
                                     }

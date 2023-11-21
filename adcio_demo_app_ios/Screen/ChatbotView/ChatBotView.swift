@@ -27,7 +27,8 @@ struct ChatBotView: View {
                         price: 0,
                         seller: "",
                         isAd: false
-                    )
+                    ),
+                    logOptionValue: LogOptionEntity(requestId: "", adsetId: "")
                 ),
                 isActive: Binding<Bool>(
                     get: { self.productId != "" },
