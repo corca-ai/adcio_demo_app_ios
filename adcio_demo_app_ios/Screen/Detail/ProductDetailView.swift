@@ -11,14 +11,14 @@ import AdcioAnalytics
 struct ProductDetailView: View {
     
     let id: String
-    let name: String
+    var name: String
     let seller: String
     let price: Int
     let image: String
     let isAd: Bool
     
     @State var isImageLoading: Bool = true
-    
+  
     let logOption: LogOptionEntity
     
     init(

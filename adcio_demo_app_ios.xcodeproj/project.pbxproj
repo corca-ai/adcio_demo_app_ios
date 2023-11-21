@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3349CE82B05F9FB003C78B8 /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3349CE72B05F9FB003C78B8 /* ChatBotView.swift */; };
 		B34C29132B04C25D00FE212B /* LogOptionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C29122B04C25D00FE212B /* LogOptionEntity.swift */; };
 		B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */; };
 		B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3349CE72B05F9FB003C78B8 /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 		B34C29122B04C25D00FE212B /* LogOptionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOptionEntity.swift; sourceTree = "<group>"; };
 		B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeToast.swift; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3349CE62B05F9E5003C78B8 /* ChatbotView */ = {
+			isa = PBXGroup;
+			children = (
+				B3349CE72B05F9FB003C78B8 /* ChatBotView.swift */,
+			);
+			path = ChatbotView;
+			sourceTree = "<group>";
+		};
 		B355A6FD2B01B20D0065E5D9 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		B3C1DE4F2AFB33A500A1DF47 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B3349CE62B05F9E5003C78B8 /* ChatbotView */,
 				B355A6FD2B01B20D0065E5D9 /* Detail */,
 				B3C1DE682AFC817C00A1DF47 /* Item */,
 				B3C1DE562AFB344400A1DF47 /* Chart */,
@@ -271,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3349CE82B05F9FB003C78B8 /* ChatBotView.swift in Sources */,
 				B3C1DE672AFC776600A1DF47 /* ProductEntity.swift in Sources */,
 				B3C1DE512AFB33C000A1DF47 /* MainView.swift in Sources */,
 				B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */,
