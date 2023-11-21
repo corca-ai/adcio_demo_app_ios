@@ -7,10 +7,12 @@
 
 import SwiftUI
 import AdcioPlacement
+import AdcioAnalytics
 
 struct MainView: View {
     
     @State private var products: [ProductEntity] = []
+    @State private var logOptions: [LogOptionEntity] = []
     
     var body: some View {
         NavigationView {
@@ -60,6 +62,13 @@ struct MainView: View {
                             }
                         }
                     }
+                    .onAppear {
+                        fetchSuggestData { productList in
+                            products = productList
+                        } logOption: { logOptionList in
+                            logOptions = logOptionList
+                        }
+                    }
                 }
                 ZStack {
                     NavigationLink(destination: ChatBotView()) {
@@ -76,10 +85,29 @@ struct MainView: View {
                             .padding([.trailing, .bottom], 20)
                     }
                 }
-                .onAppear {
-                    products = fetchJsonData() + fetchSuggestData()
-                }
             }
+            .onAppear {
+                
+                try? AdcioAnalytics.shared.onPageView(
+                    path: "Main",
+                    onFailure: { Error in
+                        dump("Analytics pageview call is failed")
+                    }
+                )
+                
+                fetchSuggestData { productList in
+                    self.products = productList
+                } logOption: { logOptionList in
+                    self.logOptions = logOptionList
+                }
+                
+                
+            }
+            .navigationBarTitle("", displayMode: .inline)
         }
+    }
+    
+    private func correspondingLogOption(_ product: ProductEntity) -> LogOptionEntity? {
+        return logOptions.first { $0.requestId == product.id }
     }
 }

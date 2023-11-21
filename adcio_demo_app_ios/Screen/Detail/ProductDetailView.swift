@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AdcioAnalytics
 
 struct ProductDetailView: View {
     
@@ -17,33 +18,20 @@ struct ProductDetailView: View {
     let isAd: Bool
     
     @State var isImageLoading: Bool = true
+  
+    let logOption: LogOptionEntity
     
-    init(productValue: ProductEntity) {
-        let jsonData = fetchJsonData()
-
-        if !productValue.id.isEmpty {
-            guard !productValue.name.isEmpty else {
-                guard let clickedProduct = jsonData.first(where: { $0.id == productValue.id }) else {
-                    fatalError("No value found for that productId: \(productValue.id)")
-                }
-
-                self.id = clickedProduct.id
-                self.name = clickedProduct.name
-                self.seller = clickedProduct.seller
-                self.price = clickedProduct.price
-                self.image = clickedProduct.image
-                self.isAd = clickedProduct.isAd
-
-                return
-            }
-        }
-
+    init(
+        productValue: ProductEntity,
+        logOptionValue: LogOptionEntity
+    ) {
         self.id = productValue.id
         self.name = productValue.name
         self.seller = productValue.seller
         self.price = productValue.price
         self.image = productValue.image
         self.isAd = productValue.isAd
+        self.logOption = logOptionValue
     }
     
     var body: some View {
@@ -126,10 +114,24 @@ struct ProductDetailView: View {
                             Image(systemName: "cart.fill")
                                 .foregroundColor(.black)
                                 .onTapGesture {
-                                    // Analytics Add To Cart
+                                    try? AdcioAnalytics.shared.onAddToCart(
+                                        cartId: "0",
+                                        productIdOnStore: id,
+                                        onFailure: { Error in
+                                            @State var showToast = true
+                                            ToastView(isVisible: $showToast, hideAfter: 2) {
+                                                Text("Analytics add to cart call is failed")
+                                                    .padding()
+                                                    .background(Color.black)
+                                                    .foregroundColor(Color.white)
+                                                    .cornerRadius(10)
+                                            }
+                                            dump("Analytics add to cart call is failed")
+                                        }
+                                    )
                                 }
                         }
-                    )
+                )
             }
             HStack {
                 Spacer()
@@ -137,17 +139,49 @@ struct ProductDetailView: View {
                     .foregroundColor(.black)
                 Spacer()
                 Button(action: {
-                    // Analaytics.onPurchase
+                    try? AdcioAnalytics.shared.onPurchase(
+                        orderId: "123123",
+                        productIdOnStore: id,
+                        amount: self.price,
+                        onFailure: { Error in
+                            @State var showToast = true
+                            ToastView(isVisible: $showToast, hideAfter: 2) {
+                                Text("Analytics purchase call is failed")
+                                    .padding()
+                                    .background(Color.black)
+                                    .foregroundColor(Color.white)
+                                    .cornerRadius(10)
+                            }
+                            dump("Analytics purchase call is failed")
+                        }
+                    )
                 }) {
                     Text("구매하기")
                         .frame(width: 250, height: 42)
-                        .background(Color.black) // Change the color as needed
+                        .background(Color.black)
                         .foregroundColor(.white)
                         .cornerRadius(4)
                 }
                 .padding(.trailing, 10)
             }
             Spacer()
+        }
+        .onAppear{
+            try? AdcioAnalytics.shared.onClick(
+                option: AdcioLogOption(
+                    requestId: logOption.requestId,
+                    adsetId: logOption.adsetId
+                ),
+                onFailure: { Error in
+                    dump("Analytics click call is failed")
+                })
+            
+            try? AdcioAnalytics.shared.onPageView(
+                path: "ProductDetail",
+                onFailure: { Error in
+                    dump("Analytics pageview call is failed")
+                }
+            )
         }
     }
 }
