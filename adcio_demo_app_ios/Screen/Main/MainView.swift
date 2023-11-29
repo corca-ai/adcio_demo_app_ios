@@ -33,9 +33,16 @@ struct MainView: View {
                     
                     ScrollView {
                         VStack(alignment: .leading, spacing: 15) {
-                            Image("Banner")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                            AsyncImage(url: URL(string: "https://picsum.photos/500/300")) { phase in
+                                if let image = phase.image {
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxHeight: 300)
+                                } else {
+                                    Text("Image not available")
+                                }
+                            }
                             
                             Text("민채님을 위한 추천 상품")
                                 .font(.subheadline)
@@ -55,8 +62,10 @@ struct MainView: View {
                         }
                     }
                     .onAppear {
+                        
                         fetchSuggestData { productList in
-                            products = productList
+                            let productData = fetchJsonData() + productList
+                            products.append(contentsOf: productData)
                         } logOption: { logOptionList in
                             logOptions = logOptionList
                         }
