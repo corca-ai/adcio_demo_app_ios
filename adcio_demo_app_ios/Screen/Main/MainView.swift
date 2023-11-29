@@ -102,6 +102,15 @@ struct MainView: View {
                     }
                 }
             }
+            .onAppear {
+                
+                try? AdcioAnalytics.shared.onPageView(
+                    path: "Main",
+                    onFailure: { Error in
+                        dump("Analytics pageview call is failed")
+                    }
+                )
+            }
             .navigationBarTitle("", displayMode: .inline)
         }
     }
