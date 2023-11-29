@@ -13,14 +13,13 @@ struct ProductEntity: Codable {
     let image: String
     let price: Int
     let seller: String
-    let isAd: Bool
-    
+    var isAd: Bool = false
+
     enum CodingKeys: String, CodingKey {
         case id = "ID"
         case name = "Name (KO)"
         case image = "Image URL"
         case price = "Customer Price"
         case seller = "Winery"
-        case isAd = "Available"
     }
 }
