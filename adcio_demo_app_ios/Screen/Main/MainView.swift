@@ -102,23 +102,6 @@ struct MainView: View {
                     }
                 }
             }
-            .onAppear {
-                
-                try? AdcioAnalytics.shared.onPageView(
-                    path: "Main",
-                    onFailure: { Error in
-                        dump("Analytics pageview call is failed")
-                    }
-                )
-                
-                fetchSuggestData { productList in
-                    self.products = productList
-                } logOption: { logOptionList in
-                    self.logOptions = logOptionList
-                }
-                
-                
-            }
             .navigationBarTitle("", displayMode: .inline)
         }
     }
