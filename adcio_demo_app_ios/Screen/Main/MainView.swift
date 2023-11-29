@@ -62,12 +62,27 @@ struct MainView: View {
                         }
                     }
                     .onAppear {
-                        
-                        fetchSuggestData { productList in
-                            let productData = fetchJsonData() + productList
-                            products.append(contentsOf: productData)
-                        } logOption: { logOptionList in
-                            logOptions = logOptionList
+                        Task {
+                            do {
+                                let productList = try await withCheckedThrowingContinuation { continuation in
+                                    fetchSuggestData { productList in
+                                        continuation.resume(returning: productList)
+                                    } logOption: { logOptionList in
+                                        logOptions = logOptionList
+                                    }
+                                }
+
+                                var productData = productList
+
+                                let jsonData = try await fetchJsonData()
+                                productData += jsonData
+
+                                DispatchQueue.main.async {
+                                    products.append(contentsOf: productData)
+                                }
+                            } catch {
+                                print("Error fetching data: \(error)")
+                            }
                         }
                     }
                 }
