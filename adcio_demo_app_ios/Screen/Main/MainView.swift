@@ -55,8 +55,10 @@ struct MainView: View {
                         }
                     }
                     .onAppear {
+                        let jsonData = fetchJsonData()
+                        
                         fetchSuggestData { productList in
-                            products = productList
+                            products.append(contentsOf: jsonData)
                         } logOption: { logOptionList in
                             logOptions = logOptionList
                         }
