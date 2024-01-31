@@ -19,6 +19,9 @@ struct HomeView: View {
     
     var body: some View {
         Content(viewModel: viewModel, height: height)
+            .onAppear {
+                viewModel.createSuggestion()
+            }
             .task {
                 await viewModel.viewChanged(with: "Home")
             }
@@ -62,9 +65,7 @@ extension HomeView {
                                                     viewModel: viewModel)
                                     }
                                     .simultaneousGesture(TapGesture().onEnded{
-                                        Task {
-                                            await viewModel.productImpressed(with: suggestion.option)
-                                        }
+                                        viewModel.productImpressed(with: suggestion.option)
                                     })
                                 }
                             }
@@ -204,9 +205,7 @@ extension HomeView {
                         .onChange(of: geometry.frame(in: .named("grid"))) { value in
                             if value.midY < self.rootViewHeight {
                                 if self.midY != 0 {
-                                    Task {
-                                        await viewModel.productImpressed(with: suggestion.option)
-                                    }
+                                    viewModel.productImpressed(with: suggestion.option)
                                 } else {
                                     self.midY = value.midY
                                 }

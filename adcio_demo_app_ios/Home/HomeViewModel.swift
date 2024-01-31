@@ -15,15 +15,13 @@ final class HomeViewModel: ObservableObject {
     private let clientID: String = "f8f2e298-c168-4412-b82d-98fc5b4a114a"
     private var analyticsManager: AnalyticsViewManageable
     private var placementManager: PlacementManageable
+    private var impressable: Bool = false
     
     @Published var suggestions: [SuggestionEntity] = []
     
     init() {
         self.analyticsManager = AnalyticsManager(clientID: clientID)
         self.placementManager = PlacementManager()
-        DispatchQueue.main.async {
-            self.createSuggestion()
-        }
     }
     
     func viewChanged(with path: String) async {
@@ -50,7 +48,10 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func productImpressed(with option: LogOptionEntity) async {
+    @MainActor
+    func productImpressed(with option: LogOptionEntity) {
+        guard impressable else { return }
+        
         let optionEntity = LogOptionMapper.map(from: option)
         
         analyticsManager.productImpressed(option: optionEntity) { result in
@@ -77,6 +78,7 @@ final class HomeViewModel: ObservableObject {
             switch result {
             case .success(let suggestions):
                 self?.suggestions = SuggestionMapper.map(from: suggestions)
+                self?.impressable = true
                 os_log("createSuggestion ✅")
                 
             case .failure(let error):
