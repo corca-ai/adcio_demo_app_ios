@@ -6,14 +6,9 @@
 //
 
 import SwiftUI
-import AdcioCore
+
 @main
 struct adcio_demo_app_iosApp: App {
-    
-    init() {
-        AdcioCore.shared.initializeApp(clientId: "f8f2e298-c168-4412-b82d-98fc5b4a114a")
-    }
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
