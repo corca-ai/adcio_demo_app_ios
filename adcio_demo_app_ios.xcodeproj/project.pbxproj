@@ -7,23 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3349CE82B05F9FB003C78B8 /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3349CE72B05F9FB003C78B8 /* ChatBotView.swift */; };
+		6911E8C72B609CA2005F02AB /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911E8C62B609CA2005F02AB /* DetailViewModel.swift */; };
+		6911E8C92B609CCD005F02AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911E8C82B609CCD005F02AB /* DetailView.swift */; };
+		6911E8CB2B60E77A005F02AB /* SuggestionEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911E8CA2B60E77A005F02AB /* SuggestionEntitiy.swift */; };
+		6911E8D12B611AE0005F02AB /* AgentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911E8D02B611AE0005F02AB /* AgentView.swift */; };
+		6911E8DD2B679BAA005F02AB /* AdcioAgent in Frameworks */ = {isa = PBXBuildFile; productRef = 6911E8DC2B679BAA005F02AB /* AdcioAgent */; };
+		6911E8DF2B679BAA005F02AB /* AdcioAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6911E8DE2B679BAA005F02AB /* AdcioAnalytics */; };
+		6911E8E12B679BAA005F02AB /* AdcioPlacement in Frameworks */ = {isa = PBXBuildFile; productRef = 6911E8E02B679BAA005F02AB /* AdcioPlacement */; };
+		6911E8E32B679BAA005F02AB /* AdcioSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 6911E8E22B679BAA005F02AB /* AdcioSDK */; };
+		6911E8E52B68CF95005F02AB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911E8E42B68CF95005F02AB /* HomeView.swift */; };
+		9BDAC64F2B5F86850035DEC4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDAC64E2B5F86850035DEC4 /* HomeViewModel.swift */; };
+		9BDAC6522B5FB18E0035DEC4 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDAC6512B5FB18E0035DEC4 /* Parser.swift */; };
+		9BDAC6542B5FD5A80035DEC4 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDAC6532B5FD5A80035DEC4 /* Mapper.swift */; };
 		B34C29132B04C25D00FE212B /* LogOptionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34C29122B04C25D00FE212B /* LogOptionEntity.swift */; };
-		B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */; };
-		B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */; };
-		B3C1DE512AFB33C000A1DF47 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE502AFB33C000A1DF47 /* MainView.swift */; };
-		B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */; };
-		B3C1DE582AFB345400A1DF47 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE572AFB345400A1DF47 /* ChartView.swift */; };
 		B3C1DE642AFC76B200A1DF47 /* Product.json in Resources */ = {isa = PBXBuildFile; fileRef = B3C1DE632AFC76B200A1DF47 /* Product.json */; };
 		B3C1DE672AFC776600A1DF47 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE662AFC776600A1DF47 /* ProductEntity.swift */; };
-		B3C1DE6A2AFC818F00A1DF47 /* GridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE692AFC818F00A1DF47 /* GridItemView.swift */; };
-		B3C1DE6D2AFC838900A1DF47 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE6C2AFC838900A1DF47 /* ProgressView.swift */; };
-		B3C1DE702AFCAE6D00A1DF47 /* AdcioAgent in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE6F2AFCAE6D00A1DF47 /* AdcioAgent */; };
-		B3C1DE722AFCAE6D00A1DF47 /* AdcioAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE712AFCAE6D00A1DF47 /* AdcioAnalytics */; };
-		B3C1DE742AFCAE6D00A1DF47 /* AdcioCore in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE732AFCAE6D00A1DF47 /* AdcioCore */; };
-		B3C1DE762AFCAE6D00A1DF47 /* AdcioPlacement in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE752AFCAE6D00A1DF47 /* AdcioPlacement */; };
-		B3C1DE782AFCAE6D00A1DF47 /* AdcioSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B3C1DE772AFCAE6D00A1DF47 /* AdcioSDK */; };
-		B3C1DE7A2AFCB8FE00A1DF47 /* FetchProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1DE792AFCB8FE00A1DF47 /* FetchProductData.swift */; };
 		B3E17EEF2AFB2E8300C1BB91 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E17EEE2AFB2E8300C1BB91 /* DemoApp.swift */; };
 		B3E17EF12AFB2E8300C1BB91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E17EF02AFB2E8300C1BB91 /* ContentView.swift */; };
 		B3E17EF32AFB2E8300C1BB91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3E17EF22AFB2E8300C1BB91 /* Assets.xcassets */; };
@@ -31,18 +29,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B3349CE72B05F9FB003C78B8 /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
+		6911E8C62B609CA2005F02AB /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		6911E8C82B609CCD005F02AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		6911E8CA2B60E77A005F02AB /* SuggestionEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionEntitiy.swift; sourceTree = "<group>"; };
+		6911E8D02B611AE0005F02AB /* AgentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentView.swift; sourceTree = "<group>"; };
+		6911E8E42B68CF95005F02AB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9BDAC64E2B5F86850035DEC4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9BDAC6512B5FB18E0035DEC4 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		9BDAC6532B5FD5A80035DEC4 /* Mapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		B34C29122B04C25D00FE212B /* LogOptionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOptionEntity.swift; sourceTree = "<group>"; };
-		B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
-		B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeToast.swift; sourceTree = "<group>"; };
-		B3C1DE502AFB33C000A1DF47 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
-		B3C1DE572AFB345400A1DF47 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		B3C1DE632AFC76B200A1DF47 /* Product.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Product.json; sourceTree = "<group>"; };
 		B3C1DE662AFC776600A1DF47 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
-		B3C1DE692AFC818F00A1DF47 /* GridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemView.swift; sourceTree = "<group>"; };
-		B3C1DE6C2AFC838900A1DF47 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		B3C1DE792AFCB8FE00A1DF47 /* FetchProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductData.swift; sourceTree = "<group>"; };
 		B3E17EEB2AFB2E8300C1BB91 /* adcio_demo_app_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adcio_demo_app_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E17EEE2AFB2E8300C1BB91 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		B3E17EF02AFB2E8300C1BB91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,76 +52,68 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C1DE742AFCAE6D00A1DF47 /* AdcioCore in Frameworks */,
-				B3C1DE782AFCAE6D00A1DF47 /* AdcioSDK in Frameworks */,
-				B3C1DE722AFCAE6D00A1DF47 /* AdcioAnalytics in Frameworks */,
-				B3C1DE702AFCAE6D00A1DF47 /* AdcioAgent in Frameworks */,
-				B3C1DE762AFCAE6D00A1DF47 /* AdcioPlacement in Frameworks */,
+				6911E8DF2B679BAA005F02AB /* AdcioAnalytics in Frameworks */,
+				6911E8DD2B679BAA005F02AB /* AdcioAgent in Frameworks */,
+				6911E8E32B679BAA005F02AB /* AdcioSDK in Frameworks */,
+				6911E8E12B679BAA005F02AB /* AdcioPlacement in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B3349CE62B05F9E5003C78B8 /* ChatbotView */ = {
+		6911E8C52B609C98005F02AB /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				B3349CE72B05F9FB003C78B8 /* ChatBotView.swift */,
-			);
-			path = ChatbotView;
-			sourceTree = "<group>";
-		};
-		B355A6FD2B01B20D0065E5D9 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				B355A6FE2B01B2290065E5D9 /* ProductDetailView.swift */,
+				6911E8C62B609CA2005F02AB /* DetailViewModel.swift */,
+				6911E8C82B609CCD005F02AB /* DetailView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		B3BF0E182AFDBF09003F3685 /* Data */ = {
+		6911E8CC2B60EA39005F02AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B3C1DE792AFCB8FE00A1DF47 /* FetchProductData.swift */,
 			);
-			path = Data;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B3C1DE4F2AFB33A500A1DF47 /* Screen */ = {
+		6911E8CF2B611AD3005F02AB /* Agent */ = {
 			isa = PBXGroup;
 			children = (
-				B3349CE62B05F9E5003C78B8 /* ChatbotView */,
-				B355A6FD2B01B20D0065E5D9 /* Detail */,
-				B3C1DE682AFC817C00A1DF47 /* Item */,
-				B3C1DE562AFB344400A1DF47 /* Chart */,
-				B3C1DE532AFB33D700A1DF47 /* Recommend */,
-				B3C1DE522AFB33C600A1DF47 /* Main */,
+				6911E8D02B611AE0005F02AB /* AgentView.swift */,
 			);
-			path = Screen;
+			path = Agent;
 			sourceTree = "<group>";
 		};
-		B3C1DE522AFB33C600A1DF47 /* Main */ = {
+		9BDAC6482B5F808A0035DEC4 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				B3C1DE502AFB33C000A1DF47 /* MainView.swift */,
+				B3E17EEE2AFB2E8300C1BB91 /* DemoApp.swift */,
+				B3E17EF02AFB2E8300C1BB91 /* ContentView.swift */,
+				B3E17EF22AFB2E8300C1BB91 /* Assets.xcassets */,
+				B3C1DE602AFC73EC00A1DF47 /* DummyJson */,
+				B3E17EF42AFB2E8300C1BB91 /* Preview Content */,
 			);
-			path = Main;
+			path = App;
 			sourceTree = "<group>";
 		};
-		B3C1DE532AFB33D700A1DF47 /* Recommend */ = {
+		9BDAC64B2B5F83F20035DEC4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B3C1DE542AFB33E400A1DF47 /* RecommendView.swift */,
+				9BDAC64E2B5F86850035DEC4 /* HomeViewModel.swift */,
+				6911E8E42B68CF95005F02AB /* HomeView.swift */,
 			);
-			path = Recommend;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		B3C1DE562AFB344400A1DF47 /* Chart */ = {
+		9BDAC6502B5FB1840035DEC4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				B3C1DE572AFB345400A1DF47 /* ChartView.swift */,
+				9BDAC6512B5FB18E0035DEC4 /* Parser.swift */,
+				9BDAC6532B5FD5A80035DEC4 /* Mapper.swift */,
 			);
-			path = Chart;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		B3C1DE602AFC73EC00A1DF47 /* DummyJson */ = {
@@ -140,25 +129,9 @@
 			children = (
 				B3C1DE662AFC776600A1DF47 /* ProductEntity.swift */,
 				B34C29122B04C25D00FE212B /* LogOptionEntity.swift */,
+				6911E8CA2B60E77A005F02AB /* SuggestionEntitiy.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		B3C1DE682AFC817C00A1DF47 /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				B3C1DE692AFC818F00A1DF47 /* GridItemView.swift */,
-			);
-			path = Item;
-			sourceTree = "<group>";
-		};
-		B3C1DE6B2AFC837B00A1DF47 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				B3C1DE6C2AFC838900A1DF47 /* ProgressView.swift */,
-				B3BF0E1A2AFDC257003F3685 /* MakeToast.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		B3E17EE22AFB2E8200C1BB91 = {
@@ -166,6 +139,7 @@
 			children = (
 				B3E17EED2AFB2E8300C1BB91 /* adcio_demo_app_ios */,
 				B3E17EEC2AFB2E8300C1BB91 /* Products */,
+				6911E8CC2B60EA39005F02AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,15 +154,12 @@
 		B3E17EED2AFB2E8300C1BB91 /* adcio_demo_app_ios */ = {
 			isa = PBXGroup;
 			children = (
-				B3BF0E182AFDBF09003F3685 /* Data */,
-				B3C1DE6B2AFC837B00A1DF47 /* Util */,
+				6911E8CF2B611AD3005F02AB /* Agent */,
 				B3C1DE652AFC775400A1DF47 /* Entity */,
-				B3C1DE602AFC73EC00A1DF47 /* DummyJson */,
-				B3C1DE4F2AFB33A500A1DF47 /* Screen */,
-				B3E17EEE2AFB2E8300C1BB91 /* DemoApp.swift */,
-				B3E17EF02AFB2E8300C1BB91 /* ContentView.swift */,
-				B3E17EF22AFB2E8300C1BB91 /* Assets.xcassets */,
-				B3E17EF42AFB2E8300C1BB91 /* Preview Content */,
+				6911E8C52B609C98005F02AB /* Detail */,
+				9BDAC6502B5FB1840035DEC4 /* Helper */,
+				9BDAC64B2B5F83F20035DEC4 /* Home */,
+				9BDAC6482B5F808A0035DEC4 /* App */,
 			);
 			path = adcio_demo_app_ios;
 			sourceTree = "<group>";
@@ -218,11 +189,10 @@
 			);
 			name = adcio_demo_app_ios;
 			packageProductDependencies = (
-				B3C1DE6F2AFCAE6D00A1DF47 /* AdcioAgent */,
-				B3C1DE712AFCAE6D00A1DF47 /* AdcioAnalytics */,
-				B3C1DE732AFCAE6D00A1DF47 /* AdcioCore */,
-				B3C1DE752AFCAE6D00A1DF47 /* AdcioPlacement */,
-				B3C1DE772AFCAE6D00A1DF47 /* AdcioSDK */,
+				6911E8DC2B679BAA005F02AB /* AdcioAgent */,
+				6911E8DE2B679BAA005F02AB /* AdcioAnalytics */,
+				6911E8E02B679BAA005F02AB /* AdcioPlacement */,
+				6911E8E22B679BAA005F02AB /* AdcioSDK */,
 			);
 			productName = adcio_demo_app_ios;
 			productReference = B3E17EEB2AFB2E8300C1BB91 /* adcio_demo_app_ios.app */;
@@ -253,7 +223,7 @@
 			);
 			mainGroup = B3E17EE22AFB2E8200C1BB91;
 			packageReferences = (
-				B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */,
+				6911E8DB2B679BAA005F02AB /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */,
 			);
 			productRefGroup = B3E17EEC2AFB2E8300C1BB91 /* Products */;
 			projectDirPath = "";
@@ -282,19 +252,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3349CE82B05F9FB003C78B8 /* ChatBotView.swift in Sources */,
+				6911E8C72B609CA2005F02AB /* DetailViewModel.swift in Sources */,
 				B3C1DE672AFC776600A1DF47 /* ProductEntity.swift in Sources */,
-				B3C1DE512AFB33C000A1DF47 /* MainView.swift in Sources */,
-				B355A6FF2B01B2290065E5D9 /* ProductDetailView.swift in Sources */,
+				9BDAC6522B5FB18E0035DEC4 /* Parser.swift in Sources */,
 				B3E17EF12AFB2E8300C1BB91 /* ContentView.swift in Sources */,
-				B3BF0E1B2AFDC257003F3685 /* MakeToast.swift in Sources */,
-				B3C1DE6A2AFC818F00A1DF47 /* GridItemView.swift in Sources */,
-				B3C1DE552AFB33E400A1DF47 /* RecommendView.swift in Sources */,
-				B3C1DE6D2AFC838900A1DF47 /* ProgressView.swift in Sources */,
+				9BDAC6542B5FD5A80035DEC4 /* Mapper.swift in Sources */,
 				B34C29132B04C25D00FE212B /* LogOptionEntity.swift in Sources */,
-				B3C1DE582AFB345400A1DF47 /* ChartView.swift in Sources */,
-				B3C1DE7A2AFCB8FE00A1DF47 /* FetchProductData.swift in Sources */,
+				6911E8CB2B60E77A005F02AB /* SuggestionEntitiy.swift in Sources */,
+				6911E8C92B609CCD005F02AB /* DetailView.swift in Sources */,
+				9BDAC64F2B5F86850035DEC4 /* HomeViewModel.swift in Sources */,
+				6911E8E52B68CF95005F02AB /* HomeView.swift in Sources */,
 				B3E17EEF2AFB2E8300C1BB91 /* DemoApp.swift in Sources */,
+				6911E8D12B611AE0005F02AB /* AgentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +396,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"adcio_demo_app_ios/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6NR3Q6FK43;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -436,7 +405,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +426,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"adcio_demo_app_ios/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6NR3Q6FK43;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -466,7 +435,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,40 +473,35 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */ = {
+		6911E8DB2B679BAA005F02AB /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/corca-ai/adcio-ios-sdk.git";
+			repositoryURL = "https://github.com/corca-ai/adcio-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				branch = feature/modulization;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B3C1DE6F2AFCAE6D00A1DF47 /* AdcioAgent */ = {
+		6911E8DC2B679BAA005F02AB /* AdcioAgent */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
+			package = 6911E8DB2B679BAA005F02AB /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
 			productName = AdcioAgent;
 		};
-		B3C1DE712AFCAE6D00A1DF47 /* AdcioAnalytics */ = {
+		6911E8DE2B679BAA005F02AB /* AdcioAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
+			package = 6911E8DB2B679BAA005F02AB /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
 			productName = AdcioAnalytics;
 		};
-		B3C1DE732AFCAE6D00A1DF47 /* AdcioCore */ = {
+		6911E8E02B679BAA005F02AB /* AdcioPlacement */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
-			productName = AdcioCore;
-		};
-		B3C1DE752AFCAE6D00A1DF47 /* AdcioPlacement */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
+			package = 6911E8DB2B679BAA005F02AB /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
 			productName = AdcioPlacement;
 		};
-		B3C1DE772AFCAE6D00A1DF47 /* AdcioSDK */ = {
+		6911E8E22B679BAA005F02AB /* AdcioSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B3C1DE6E2AFCAE6D00A1DF47 /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
+			package = 6911E8DB2B679BAA005F02AB /* XCRemoteSwiftPackageReference "adcio-ios-sdk" */;
 			productName = AdcioSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductEntity: Codable {
+struct ProductEntity: Codable, Hashable {
     let id: String
     let name: String
     let image: String
