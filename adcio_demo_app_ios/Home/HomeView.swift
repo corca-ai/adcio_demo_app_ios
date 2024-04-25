@@ -147,7 +147,7 @@ extension HomeView {
                         if let image = phase.image {
                             image.resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 140)
+                                .frame(width: 140, height: 140)
                                 .overlay(
                                     suggestion.product.isAd ? Text("AD")
                                         .font(.caption2)
