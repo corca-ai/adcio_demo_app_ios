@@ -477,7 +477,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/corca-ai/adcio-ios-sdk";
 			requirement = {
-				branch = feature/modulization;
+				branch = demo;
 				kind = branch;
 			};
 		};
