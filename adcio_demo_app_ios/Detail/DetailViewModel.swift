@@ -40,7 +40,12 @@ final class DetailViewModel: ObservableObject {
     }
     
     func viewChanged(with path: String) async {
-        analyticsManager.viewChanged(path: path, customerID: "corca0302", productIDOnStore: suggestion.product.id, title: suggestion.product.name) { result in
+        analyticsManager.viewChanged(customerID: nil,
+                                     productIDOnStore: suggestion.product.id,
+                                     title: suggestion.product.name,
+                                     requestID: suggestion.option.requestId,
+                                     adsetID: suggestion.option.adsetId,
+                                     categoryIDOnStore: nil) { result in
             switch result {
             case .success(let isSuccess):
                 os_log("\(path) viewChanged \(isSuccess) ✅")

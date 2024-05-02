@@ -24,18 +24,9 @@ final class HomeViewModel: ObservableObject {
         self.placementManager = PlacementManager()
     }
     
-    func viewChanged(with path: String) async {
-        analyticsManager.viewChanged(path: path) { result in
-            switch result {
-            case .success(let isSuccess):
-                os_log("\(path) viewChanged \(isSuccess) ✅")
-            case .failure(let error):
-                os_log("\(path) viewChanged : \(error) ❌")
-            }
-        }
-    }
-    
     func productTapped(_ suggestion: SuggestionEntity) async {
+        guard suggestion.product.isAd else { return }
+        
         let option = LogOptionMapper.map(from: suggestion.option)
         
         analyticsManager.productTapped(option: option) { result in
@@ -72,8 +63,6 @@ final class HomeViewModel: ObservableObject {
             categoryID: "1",
             placementID: "67592c00-a230-4c31-902e-82ae4fe71866",
             customerID: "corca0302",
-            placementPositionX: 80,
-            placementPositionY: 80,
             fromAgent: false,
             birthYear: 2000,
             gender: .male,
