@@ -24,40 +24,40 @@ final class HomeViewModel: ObservableObject {
         self.placementManager = PlacementManager()
     }
     
-    func productTapped(_ suggestion: SuggestionEntity) async {
+    func onClick(_ suggestion: SuggestionEntity) async {
         guard suggestion.product.isAd else { return }
         
         let option = LogOptionMapper.map(from: suggestion.option)
         
-        analyticsManager.productTapped(option: option) { result in
+        analyticsManager.onClick(option: option, customerID: nil) { result in
             switch result {
             case .success(let isSuccess):
-                os_log("productTapped ✅ \(isSuccess) ")
+                os_log("onClick ✅ \(isSuccess) ")
             case .failure(let error):
-                os_log("productTapped ❌ : \(error) ")
+                os_log("onClick ❌ : \(error) ")
             }
         }
     }
     
     @MainActor
-    func productImpressed(with option: LogOptionEntity) {
+    func onImpression(with option: LogOptionEntity) {
         guard impressable else { return }
         
-        let optionEntity = LogOptionMapper.map(from: option)
+        let option = LogOptionMapper.map(from: option)
         
-        analyticsManager.productImpressed(option: optionEntity) { result in
+        analyticsManager.onImpression(option: option, customerID: nil, productIDOnStore: nil) { result in
             switch result {
             case .success(let isSuccess):
-                os_log("productImpressed ✅ \(isSuccess) ")
+                os_log("onImpression ✅ \(isSuccess) ")
             case .failure(let error):
-                os_log("productImpressed ❌ : \(error) ")
+                os_log("onImpression ❌ : \(error) ")
             }
         }
     }
     
     @MainActor
-    func createSuggestion() {
-        placementManager.adcioCreateSuggestion(
+    func createAdvertisementProducts() {
+        placementManager.createAdvertisementProducts(
             clientID: clientID,
             excludingProductIDs: ["1001"],
             categoryID: "1",
@@ -65,16 +65,15 @@ final class HomeViewModel: ObservableObject {
             customerID: "corca0302",
             fromAgent: false,
             birthYear: 2000,
-            gender: .male,
-            area: "Korea") { [weak self] result in
+            gender: .male) { [weak self] result in
                 switch result {
                 case .success(let suggestions):
                     self?.suggestions = SuggestionMapper.map(from: suggestions)
                     self?.impressable = true
-                    os_log("createSuggestion ✅")
+                    os_log("createAdvertisementProducts ✅")
                     
                 case .failure(let error):
-                    os_log("createSuggestion ❌ : \(error)")
+                    os_log("createAdvertisementProducts ❌ : \(error)")
                 }
             }
     }

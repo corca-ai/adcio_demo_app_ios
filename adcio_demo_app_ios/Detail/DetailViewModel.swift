@@ -39,45 +39,58 @@ final class DetailViewModel: ObservableObject {
         return suggestion.product.id
     }
     
-    func viewChanged(with path: String) async {
-        analyticsManager.viewChanged(customerID: nil,
-                                     productIDOnStore: suggestion.product.id,
-                                     title: suggestion.product.name,
-                                     requestID: suggestion.option.requestId,
-                                     adsetID: suggestion.option.adsetId,
-                                     categoryIDOnStore: nil) { result in
-            switch result {
-            case .success(let isSuccess):
-                os_log("\(path) viewChanged \(isSuccess) ✅")
-            
-            case .failure(let error):
-                os_log("\(path) viewChanged : \(error) ❌")
+    func onView(with path: String) async {
+        analyticsManager.onView(
+            customerID: nil,
+            productIDOnStore: suggestion.product.id,
+            title: suggestion.product.name,
+            requestID: suggestion.option.requestId,
+            adsetID: suggestion.option.adsetId,
+            categoryIDOnStore: nil) { result in
+                switch result {
+                case .success(let isSuccess):
+                    os_log("\(path) onView \(isSuccess) ✅")
+                
+                case .failure(let error):
+                    os_log("\(path) onView : \(error) ❌")
+                }
             }
-        }
     }
     
-    func addToCart(cartID: String, productIDOnStore: String) async {
-        analyticsManager.addToCart(cartID: cartID,
-                                   productIDOnStore: productIDOnStore) { result in
-            switch result {
-            case .success(let isSuccess):
-                os_log("addToCart \(isSuccess) ✅")
-            case .failure(let error):
-                os_log("addToCart : \(error) ❌")
+    func onAddToCart(cartID: String, productIDOnStore: String) async {
+        analyticsManager.onAddToCart(
+            cartID: cartID,
+            customerID: nil,
+            productIDOnStore: productIDOnStore,
+            reqeustID: nil,
+            adsetID: nil,
+            categoryIdOnStore: nil,
+            quantity: nil) { result in
+                switch result {
+                case .success(let isSuccess):
+                    os_log("onAddToCart \(isSuccess) ✅")
+                case .failure(let error):
+                    os_log("onAddToCart : \(error) ❌")
+                }
             }
-        }
     }
     
-    func productPurchased(orderID: String, productIDOnStore: String, amount: Int) async {
-        analyticsManager.productPurchased(orderID: orderID,
-                                          productIDOnStore: productIDOnStore,
-                                          amount: amount) { result in
-            switch result {
-            case .success(let isSuccess):
-                os_log("productPurchased \(isSuccess) ✅")
-            case .failure(let error):
-                os_log("productPurchased : \(error) ❌")
+    func onPurchase(orderID: String, productIDOnStore: String, amount: Int) async {
+        analyticsManager.onPurchase(
+            orderID: orderID,
+            customerID: nil,
+            requestID: nil,
+            adsetID: nil,
+            categoryIDOnStore: nil,
+            quantity: nil,
+            productIDOnStore: productIDOnStore,
+            amount: amount) { result in
+                switch result {
+                case .success(let isSuccess):
+                    os_log("onPurchase \(isSuccess) ✅")
+                case .failure(let error):
+                    os_log("onPurchase : \(error) ❌")
+                }
             }
-        }
     }
 }

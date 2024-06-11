@@ -17,7 +17,7 @@ struct DetailView: View {
     var body: some View {
         Content(viewModel: viewModel)
             .task {
-                await viewModel.viewChanged(with: "Detail")
+                await viewModel.onView(with: "Detail")
             }
     }
 }
@@ -46,7 +46,7 @@ extension DetailView {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         Task {
-                            await viewModel.addToCart(cartID: "0",
+                            await viewModel.onAddToCart(cartID: "0",
                                                       productIDOnStore: viewModel.identifier())
                         }
                     } label: {
@@ -146,7 +146,7 @@ extension DetailView {
         var body: some View {
             Button {
                 Task {
-                    await viewModel.productPurchased(orderID: "123123",
+                    await viewModel.onPurchase(orderID: "123123",
                                                      productIDOnStore: viewModel.identifier(),
                                                      amount: viewModel.price())
                 }
