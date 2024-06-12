@@ -65,7 +65,8 @@ final class HomeViewModel: ObservableObject {
             customerID: "corca0302",
             fromAgent: false,
             birthYear: 2000,
-            gender: .male) { [weak self] result in
+            gender: .male, 
+            filters: nil) { [weak self] result in
                 switch result {
                 case .success(let suggestions):
                     self?.suggestions = SuggestionMapper.map(from: suggestions)
