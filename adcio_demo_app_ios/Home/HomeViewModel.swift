@@ -12,7 +12,7 @@ import AdcioAnalytics
 import AdcioPlacement
 
 final class HomeViewModel: ObservableObject {
-    private let clientID: String = "f8f2e298-c168-4412-b82d-98fc5b4a114a"
+    private let clientID: String = "76dc12fa-5a73-4c90-bea5-d6578f9bc606"
     private var analyticsManager: AnalyticsViewManageable
     private var placementManager: PlacementManageable
     private var impressable: Bool = false
@@ -59,14 +59,17 @@ final class HomeViewModel: ObservableObject {
     func createAdvertisementProducts() {
         placementManager.createAdvertisementProducts(
             clientID: clientID,
-            excludingProductIDs: ["1001"],
-            categoryID: "1",
-            placementID: "67592c00-a230-4c31-902e-82ae4fe71866",
+            excludingProductIDs: nil,
+            categoryID: "2179",
+            placementID: "5ae9907f-3cc2-4ed4-aaa4-4b20ac97f9f4",
             customerID: "corca0302",
             fromAgent: false,
             birthYear: 2000,
             gender: .male, 
-            filters: nil) { [weak self] result in
+            filters: [
+                "price_excluding_tax": Filter(not: 53636),
+                "product_code": Filter(contains: "KY")
+            ]) { [weak self] result in
                 switch result {
                 case .success(let suggestions):
                     self?.suggestions = SuggestionMapper.map(from: suggestions)
