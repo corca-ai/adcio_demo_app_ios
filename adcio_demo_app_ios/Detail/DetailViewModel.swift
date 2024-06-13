@@ -43,7 +43,6 @@ final class DetailViewModel: ObservableObject {
         analyticsManager.onView(
             customerID: nil,
             productIDOnStore: suggestion.product.id,
-            title: suggestion.product.name,
             requestID: suggestion.option.requestId,
             adsetID: suggestion.option.adsetId,
             categoryIDOnStore: nil) { result in

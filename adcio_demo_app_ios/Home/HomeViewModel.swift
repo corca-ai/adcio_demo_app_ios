@@ -29,7 +29,10 @@ final class HomeViewModel: ObservableObject {
         
         let option = LogOptionMapper.map(from: suggestion.option)
         
-        analyticsManager.onClick(option: option, customerID: nil) { result in
+        analyticsManager.onClick(option: option,
+                                 customerID: nil,
+                                 productIDOnStore: suggestion.product.id)
+        { result in
             switch result {
             case .success(let isSuccess):
                 os_log("onClick ✅ \(isSuccess) ")
