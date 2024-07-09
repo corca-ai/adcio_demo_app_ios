@@ -12,7 +12,7 @@ import AdcioAnalytics
 import AdcioPlacement
 
 final class HomeViewModel: ObservableObject {
-    private let clientID: String = "f8f2e298-c168-4412-b82d-98fc5b4a114a"
+    private let clientID: String = "76dc12fa-5a73-4c90-bea5-d6578f9bc606"
     private var analyticsManager: AnalyticsViewManageable
     private var placementManager: PlacementManageable
     private var impressable: Bool = false
@@ -24,57 +24,63 @@ final class HomeViewModel: ObservableObject {
         self.placementManager = PlacementManager()
     }
     
-    func productTapped(_ suggestion: SuggestionEntity) async {
+    func onClick(_ suggestion: SuggestionEntity) async {
         guard suggestion.product.isAd else { return }
         
         let option = LogOptionMapper.map(from: suggestion.option)
         
-        analyticsManager.productTapped(option: option) { result in
+        analyticsManager.onClick(option: option,
+                                 customerID: nil,
+                                 productIDOnStore: suggestion.product.id)
+        { result in
             switch result {
             case .success(let isSuccess):
-                os_log("productTapped ✅ \(isSuccess) ")
+                os_log("onClick ✅ \(isSuccess) ")
             case .failure(let error):
-                os_log("productTapped ❌ : \(error) ")
+                os_log("onClick ❌ : \(error) ")
             }
         }
     }
     
     @MainActor
-    func productImpressed(with option: LogOptionEntity) {
+    func onImpression(with option: LogOptionEntity) {
         guard impressable else { return }
         
-        let optionEntity = LogOptionMapper.map(from: option)
+        let option = LogOptionMapper.map(from: option)
         
-        analyticsManager.productImpressed(option: optionEntity) { result in
+        analyticsManager.onImpression(option: option, customerID: nil, productIDOnStore: nil) { result in
             switch result {
             case .success(let isSuccess):
-                os_log("productImpressed ✅ \(isSuccess) ")
+                os_log("onImpression ✅ \(isSuccess) ")
             case .failure(let error):
-                os_log("productImpressed ❌ : \(error) ")
+                os_log("onImpression ❌ : \(error) ")
             }
         }
     }
     
     @MainActor
-    func createSuggestion() {
-        placementManager.adcioCreateSuggestion(
+    func createAdvertisementProducts() {
+        placementManager.createAdvertisementProducts(
             clientID: clientID,
-            excludingProductIDs: ["1001"],
-            categoryID: "1",
-            placementID: "67592c00-a230-4c31-902e-82ae4fe71866",
+            excludingProductIDs: nil,
+            categoryID: "2179",
+            placementID: "5ae9907f-3cc2-4ed4-aaa4-4b20ac97f9f4",
             customerID: "corca0302",
             fromAgent: false,
             birthYear: 2000,
-            gender: .male,
-            area: "Korea") { [weak self] result in
+            gender: .male, 
+            filters: [
+                "price_excluding_tax": Filter(not: 53636),
+                "product_code": Filter(contains: "KY")
+            ]) { [weak self] result in
                 switch result {
                 case .success(let suggestions):
                     self?.suggestions = SuggestionMapper.map(from: suggestions)
                     self?.impressable = true
-                    os_log("createSuggestion ✅")
+                    os_log("createAdvertisementProducts ✅")
                     
                 case .failure(let error):
-                    os_log("createSuggestion ❌ : \(error)")
+                    os_log("createAdvertisementProducts ❌ : \(error)")
                 }
             }
     }
